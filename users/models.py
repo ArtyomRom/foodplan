@@ -22,6 +22,13 @@ class Profile(models.Model):
     """
     Расширение стандартного User для наших нужд.
     """
+    telegram_id = models.BigIntegerField(
+        _("Telegram ID"),
+        unique=True,
+        null=True,
+        blank=True,
+        help_text=_("Уникальный Telegram ID пользователя")
+    )
     user = models.OneToOneField(
         User, on_delete=models.CASCADE,
         related_name='profile',
